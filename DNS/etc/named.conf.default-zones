@@ -1,0 +1,5 @@
+zone "rn.asa.br" {
+	type master;
+	file "/etc/bind/db.rn.asa.br";
+	allow-transfer { any; };
+};
