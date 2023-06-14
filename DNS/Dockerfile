@@ -12,4 +12,4 @@ EXPOSE 53/tcp
 EXPOSE 53/udp 
 EXPOSE 953/tcp 
 
-CMD ("/usr/sbin/name", "-g", "-c", "/etc/bind/named.conf", "bind")
+CMD ["/usr/sbin/named", "-g", "-c", "/etc/bind/named.conf", "-u", "bind"]
