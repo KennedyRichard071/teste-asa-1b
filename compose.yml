@@ -1,26 +1,26 @@
 services:
-  web01:
+  intranet:
     build:
-      context: ./site1
+      context: ./intranet
       dockerfile: Dockerfile
-    image: web01
-    container_name: web01
+    image: intranet
+    container_name: intranet
     networks:
       - asa-network
-  web02:
+  portal:
     build:
-      context: ./site2
+      context: ./portal
       dockerfile: Dockerfile
-    image: web02
-    container_name: web02
+    image: portal
+    container_name: portal
     networks:
       - asa-network
-  web03:
+  webmail:
     build:
-      context: ./site3
+      context: ./webmail
       dockerfile: Dockerfile
-    image: web03
-    container_name: web03
+    image: webmail
+    container_name: webmail
     networks:
       - asa-network
   proxy:
@@ -32,9 +32,9 @@ services:
     ports:
       - "8080:80"
     depends_on:
-      - web01
-      - web02
-      - web03
+      - intranet
+      - portal
+      - webmail
     networks:
       - asa-network
   dns:
